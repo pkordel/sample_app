@@ -35,4 +35,9 @@ end
 
 group :test do
   gem 'rspec', '2.0.0.beta.20'
+  gem 'autotest', '4.3.2'
+  gem 'autotest-rails', '4.1.0'
+  gem 'autotest-fsevent', '0.2.3'
+  gem 'autotest-growl', '0.2.5'
+  gem 'spork', '0.8.4'
 end
