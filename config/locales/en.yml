@@ -5,3 +5,17 @@ en:
   hello: "Hello world"
   foo:
     bar: "Bar"
+    
+  confirm:
+    destroy: 'Are you sure?'
+  post: 
+    title: "Title"
+    content: "Content"
+    list: "Listing posts"
+    new: "New Post" 
+    edit: "Edit Post"
+    destroy: "Destroy Post"
+    show: "Show Post"
+    error:
+      message: "prohibited this post from being saved"
+  
