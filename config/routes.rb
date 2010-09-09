@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  resources :users
+
   resources :posts
 
   get "pages/home"
