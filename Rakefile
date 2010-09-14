@@ -4,4 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
+begin
+  require "gettext_i18n_rails/tasks"
+rescue LoadError
+  puts "gettext_i18n_rails is not installed, you probably should run 'rake gems:install' or 'bundle install'."
+end
+
 SampleApp::Application.load_tasks

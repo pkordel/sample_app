@@ -6,6 +6,16 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem "fast_gettext", '>= 0.5.8'
+gem 'gettext_i18n_rails'
+
+#only used for mo/po file generation in development, !do not load(:lib=>false)! since it will only eat 7mb ram
+gem "gettext", '>= 1.9.3', :require => false
+
+#this is needed for language/country translations
+gem "i18n_data", '>= 0.2.6', :require => 'i18n_data'
+
+gem 'ruby_parser'
 
 # Use unicorn as the web server
 # gem 'unicorn'
