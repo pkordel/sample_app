@@ -3,10 +3,11 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: session_params[:email].downcase)
-    if user&.authenticate(session_params[:password])
+    @user = User.find_by(email: session_params[:email].downcase)
+    if @user&.authenticate(session_params[:password])
       reset_session
-      signin_user(user)
+      session_params[:remember_me] == '1' ? remember_user(@user) : forget_user(@user)
+      signin_user(@user)
       redirect_to current_user
     else
       flash.now[:danger] = "Invalid signin"
@@ -21,6 +22,6 @@ class UserSessionsController < ApplicationController
 
   private
     def session_params
-      params.require(:session).permit(:email, :password)
+      params.require(:session).permit(:email, :password, :remember_me)
     end
 end

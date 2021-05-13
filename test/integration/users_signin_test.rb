@@ -22,6 +22,7 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     delete signout_path
     assert_not signed_in?
     assert_redirected_to root_url
+    delete signout_path
     follow_redirect!
     assert_select "a[href=?]", signin_path
     assert_select "a[href=?]", signout_path,     count: 0
@@ -35,5 +36,18 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     get root_path
     assert flash.empty?
+  end
+
+  test "sign in with remembering" do
+    sign_in_as(@user, remember_me: '1')
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
+  end
+
+  test "sign in without remembering" do
+    # Sign in to store the cookie
+    sign_in_as(@user, remember_me: '1')
+    # Sign in again and verify the cookie is deleted
+    sign_in_as(@user, remember_me: '0')
+    assert cookies[:remember_token].blank?
   end
 end
