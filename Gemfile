@@ -27,6 +27,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "brakeman"
   gem "rack-mini-profiler", "~> 2.0"
   gem "rubocop", ">= 0.90", require: false
   gem "rubocop-performance", require: false
