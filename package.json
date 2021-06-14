@@ -15,5 +15,11 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
+  },
+  "resolutions": {
+    "normalize-url": ">=4.5.1 <5.0.0",
+    "css-what": ">=5.0.1",
+    "glob-parent": ">=5.1.2",
+    "postcss": ">=8.2.10"
   }
 }
